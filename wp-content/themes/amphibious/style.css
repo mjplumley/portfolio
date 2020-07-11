@@ -1623,7 +1623,7 @@ body.has-responsive-menu {
 }
 
 .site-header-menu-responsive ul.toggle-on {
-  display: block;
+  display: hidden;
 }
 
 .site-header-menu-responsive li {
