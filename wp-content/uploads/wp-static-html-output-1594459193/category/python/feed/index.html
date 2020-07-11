@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Python &#8211; Meredith Plumley</title>
+	<atom:link href="https://mjplumley.github.io/portfolio/category/python/feed/" rel="self" type="application/rss+xml" />
+	<link>http://mjplumley.github.io/portfolio/</link>
+	<description>PhD Applied Mathematician </description>
+	<lastBuildDate>Fri, 10 Jul 2020 13:30:50 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.4.2</generator>
+
+<image>
+	<url>https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/cropped-LOGOmp-1-32x32.png</url>
+	<title>Python &#8211; Meredith Plumley</title>
+	<link>http://mjplumley.github.io/portfolio/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>Time series sales analysis</title>
+		<link>https://mjplumley.github.io/portfolio/2020/01/09/sales-analysis/</link>
+		
+		<dc:creator><![CDATA[mjplumley]]></dc:creator>
+		<pubDate>Thu, 09 Jan 2020 11:44:16 +0000</pubDate>
+				<category><![CDATA[All]]></category>
+		<category><![CDATA[Data Science]]></category>
+		<category><![CDATA[Python]]></category>
+		<guid isPermaLink="false">https://mjplumley.github.io/portfolio/?p=97</guid>
+
+					<description><![CDATA[One of the largest problems retailers face is the prediction of sales. If the exact demand can be known, retailers can avoid the losses from&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>One of the largest problems retailers face is the prediction of sales.  If the exact demand can be known, retailers can avoid the losses from being either overstocked or out of stock.  Given the order times that most retailers face, including production and shipping, this means that they must predict the demand at least several months into the future using the data they currently have available.  </p>
+
+
+
+<p>This data is taken from an amazon seller, looking to make better forecasting  decisions for product ordering.  </p>
+
+
+
+<p></p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/sales_by_state19_20-copy.jpg" alt="" class="wp-image-136" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/sales_by_state19_20-copy.jpg 883w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/sales_by_state19_20-copy-300x119.jpg 300w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/sales_by_state19_20-copy-768x304.jpg 768w" sizes="(max-width: 883px) 100vw, 883px" /><figcaption><span style="color:#c4edf0" class="has-text-color has-normal-font-size"> The total sales by state, which correlates with the state populations.</span> </figcaption></figure>
+
+
+
+<p>There are several trends evident in the time series of the daily sales.  There are trends on the yearly timescale, including peaks in Q1 and Q3 and a decline during Q2. The massive decline during the COVID-19 crisis in March/April 2020 is evident as a major one-time event.  There is also a larger trend towards fewer sales overall toward the end of 2019 as well as an uptick after May 2020.  </p>
+
+
+
+<p>The goal is to be able to capture some of these trends into a prediction of the sales to forecast the order quantities for the seller.  There are several strategies for doing this, two of which I outline below. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/sales_daily_tanold-1024x367.png" alt="" class="wp-image-272" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/sales_daily_tanold-1024x367.png 1024w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/sales_daily_tanold-300x108.png 300w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/sales_daily_tanold-768x275.png 768w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/sales_daily_tanold-1536x551.png 1536w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/sales_daily_tanold-1920x688.png 1920w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/sales_daily_tanold.png 2042w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><span style="color:#c4edf0" class="has-text-color has-normal-font-size"> Sales of a specific product over the last 3 years with the rolling averages of 30 days, 60 days and 1 year.</span>  </figcaption></figure>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<h2 class="has-text-color has-text-align-center" style="color:#47bec9">Formula 1</h2>
+
+
+
+<p>This method of prediction is based on the sales during the last 30 and 60 days to capture how the product is currently selling but uses the slope information from previous years to account for historical changes.  This slope is calculated as the rate from the previous year compared to the actual sales and will capture information from yearly repeating but time-isolated increases or decreases in sales, such as for holidays or seasonal variations.  </p>
+
+
+
+<p>This slope is multiplied by the averaged past 30 and 60 day sales to get an expected/predicted daily sales value.  The quantity to order can then be calculated as the predicted daily sales rate times the number of days stock you want to have, which is a function of the production, shipping time, and storage fees.  Typically I would take it to be between 30-90 days. </p>
+
+
+
+<h3 class="has-text-color has-text-align-center" style="color:#c4edf0"><em>Quantity = predicted average daily sales * days of stock desired</em></h3>
+
+
+
+<p>This method relies only on the past sales data to calculate and is less dependent on inputs.</p>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<h2 class="has-text-color has-text-align-center" style="color:#47bec9">Formula 2</h2>
+
+
+
+<p>We can also try to model the daily sales based on the past data and predict the variations of the sales over future days with more precision.  The simplest model to come up with a linear model that uses various features of the data as the variables and fits coefficients to them to measure the influence of those features on the daily sales. This can be expressed as a function like:</p>
+
+
+
+<h3 class="has-text-color has-text-align-center" style="color:#c4edf0"><em>Daily Sales = c0 + c1(Mon), + c2(Tue) + &#8230; + c8(Jan) + c9(Feb) + &#8230; + c20(Holiday)</em></h3>
+
+
+
+<p>Here the <em>c</em>&#8216;s are the coefficients and the features are represented as <em>Mon</em> for Monday, <em>Tue</em> for Tuesday, and all the other days of the week, the months are represented as <em>Jan</em>, <em>Feb</em>, etc and a few other features are included as well, including if the day is a <em>holiday</em>, the week before a holiday and a counter for annual increase.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.51-PM-1024x364.png" alt="" class="wp-image-276" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.51-PM-1024x364.png 1024w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.51-PM-300x107.png 300w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.51-PM-768x273.png 768w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.51-PM-1536x545.png 1536w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.51-PM-2048x727.png 2048w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.51-PM-1920x682.png 1920w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><span class="has-text-color has-normal-font-size" style="color:#c4edf0"> Sales of a specific product over the last 3 years in orange with the modeled prediction, in blue for the forecast and green for the fit.</span></figcaption></figure>
+
+
+
+<p>The model is fit using the Linear Regression from sklearn.  The coefficients it finds are listed in the table below and indicate how each feature impacts the daily sales.  Looking at the day of the week, Monday &#8211; Wedensday account for higher sales.  Looking at the months, April-Jun account for the highest sales.   Holidays lead to less sales on the day and there is an annual increase of 0.3 sales per day. </p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.59-PM.png" alt="" class="wp-image-277" width="374" height="411" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.59-PM.png 748w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.59-PM-272x300.png 272w" sizes="(max-width: 374px) 100vw, 374px" /><figcaption><span style="color:#c4edf0" class="has-text-color has-normal-font-size"> List of the values and errors of the coefficients for the fit of the linear model.</span>  </figcaption></figure></div>
+
+
+
+<p>This model can also be used to predict the forecasted units by summing over the desired period of time.  This model provides for more daily variation and precision in the forecasting. However, the quality of the model depends highly on the features given to it.  For instance, without the monthly features, the model will not vary on the monthly scale and that seasonal variation will not be included.  More features could be added here to improve the model. </p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Modeling multiscale equations</title>
+		<link>https://mjplumley.github.io/portfolio/2020/01/07/multiscale-equation-modeling/</link>
+		
+		<dc:creator><![CDATA[mjplumley]]></dc:creator>
+		<pubDate>Tue, 07 Jan 2020 07:36:58 +0000</pubDate>
+				<category><![CDATA[Fluid Dynamics]]></category>
+		<category><![CDATA[Python]]></category>
+		<guid isPermaLink="false">https://mjplumley.github.io/portfolio/?p=231</guid>
+
+					<description><![CDATA[The dynamics of many physical systems are dependent on the interaction of many different scales. Modeling these types of systems leads to difficulties, as the&#8230;]]></description>
+										<content:encoded><![CDATA[
+<div class="wp-block-buttons">
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-text-color" href="https://github.com/mjplumley/SMmultiscale" style="color:#c4edf0" target="_blank" rel="noopener noreferrer">See the code</a></div>
+</div>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p>The dynamics of many physical systems are dependent on the interaction of many different scales.  Modeling these types of systems leads to difficulties, as the range of scales makes direct computation unfeasible.  </p>
+
+
+
+<p>There are several methods for handling systems that include a large disparity in scale.  These methods typically involve solving the components separately on different grids with different resolution and coupling the solutions together, using interpolation.  Additionally, there is field called Heterogeneous Multiscale Methods (HMM) which focuses on solving systems of equations that contain the scaling as a parameter.</p>
+
+
+
+<div class="wp-block-group"><div class="wp-block-group__inner-container">
+<div class="wp-block-group"><div class="wp-block-group__inner-container">
+<div class="wp-block-group"><div class="wp-block-group__inner-container">
+<div class="wp-block-image is-style-default"><figure class="aligncenter size-large is-resized"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-14-at-3.12.37-PM.png" alt="" class="wp-image-235" width="339" height="189" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-14-at-3.12.37-PM.png 570w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-14-at-3.12.37-PM-300x167.png 300w" sizes="(max-width: 339px) 100vw, 339px" /><figcaption><span class="has-text-color has-normal-font-size" style="color:#c4edf0">An example of a system with scale separation.  Here the evolution for <em>g</em> is much slower than the evolution of <em>f</em>, and the system is coupled through the functions <em>F</em> and <em>G</em>. </span> </figcaption></figure></div>
+</div></div>
+</div></div>
+</div></div>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<div class="wp-block-group"><div class="wp-block-group__inner-container">
+<div class="wp-block-group"><div class="wp-block-group__inner-container"></div></div>
+</div></div>
+
+
+
+<p>For investigations of the geomagnetic field, I simulated a mathematically reduced set of the MHD equations. This model contains multiple time scales which added a complication to the numerical simulation.   I investigated the model using a simplified class of solutions whose horizontal structure is restricted to a certain geometry to reduce the complexity further.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-14-at-3.19.47-PM-1024x750.png" alt="" class="wp-image-239" width="405" height="296" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-14-at-3.19.47-PM-1024x750.png 1024w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-14-at-3.19.47-PM-300x220.png 300w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-14-at-3.19.47-PM-768x562.png 768w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-14-at-3.19.47-PM-1536x1125.png 1536w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-14-at-3.19.47-PM.png 1912w" sizes="(max-width: 405px) 100vw, 405px" /><figcaption><span class="has-text-color has-normal-font-size" style="color:#c4edf0">The set of equations with the three scales.</span></figcaption></figure></div>
+
+
+
+<p>I worked on two methodologies for handling the multiple timescales in the model:</p>
+
+
+
+<ul><li> a stiff, common-in-time approach where all timescales are converted to a single time variable and </li><li>a heterogeneous multiscale modeling approach employing fast time averaging on the faster time scale fluxes that feed back onto the slow scales.</li></ul>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-14-at-2.03.31-PM.png" alt="" class="wp-image-124" width="430" height="134" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-14-at-2.03.31-PM.png 1018w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-14-at-2.03.31-PM-300x94.png 300w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-14-at-2.03.31-PM-768x241.png 768w" sizes="(max-width: 430px) 100vw, 430px" /><figcaption> <span class="has-text-color has-normal-font-size" style="color:#c4edf0"> Schematic showing the two methods implemented to compare and validate the handling of the two time scales in the model.</span></figcaption></figure></div>
+
+
+
+<p>Each strategy produced consistent results and each illustrated self-similar dynamics as the time averaging window is increased. The model showed that the properties of the convection were significantly altered by the dynamo-generated magnetic field.&nbsp;</p>
+
+
+
+<p>These results are detailed in the paper: Plumley, Meredith, et al. &#8220;Self-consistent single mode investigations of the quasi-geostrophic convection-driven dynamo model.&#8221;&nbsp;<em>Journal of Plasma Physics</em>&nbsp;84.4 (2018).</p>
+
+
+
+<p></p>
+
+
+
+<p></p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Neural Network XOR</title>
+		<link>https://mjplumley.github.io/portfolio/2020/01/01/neural-network-xor/</link>
+		
+		<dc:creator><![CDATA[mjplumley]]></dc:creator>
+		<pubDate>Wed, 01 Jan 2020 14:45:27 +0000</pubDate>
+				<category><![CDATA[All]]></category>
+		<category><![CDATA[Data Science]]></category>
+		<category><![CDATA[Python]]></category>
+		<guid isPermaLink="false">https://mjplumley.github.io/portfolio/?p=175</guid>
+
+					<description><![CDATA[The &#8216;exclusive or &#8216; (XOR) is a simple problem that can be trained using Machine Learning techniques. Here I apply a simple 2 layer neural&#8230;]]></description>
+										<content:encoded><![CDATA[
+<p>The &#8216;exclusive or &#8216; (XOR) is a simple problem that can be trained using Machine Learning techniques. Here I apply a simple 2 layer neural network written in python and solved using matrix math (no ML packages used) to investigate neural networks on a more fundamental level. </p>
+
+
+
+<div class="wp-block-media-text alignwide is-stacked-on-mobile" style="grid-template-columns:22% auto"><figure class="wp-block-media-text__media"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-03-at-10.51.48-AM.png" alt="" class="wp-image-188" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-03-at-10.51.48-AM.png 998w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-03-at-10.51.48-AM-295x300.png 295w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-03-at-10.51.48-AM-768x782.png 768w" sizes="(max-width: 998px) 100vw, 998px" /></figure><div class="wp-block-media-text__content">
+<p>The inputs and outputs of XOR are expressed in the image to the left.  There are four input vectors, which are made up of all the combinations of 0 and 1, such as (1,0),(0,1),(0,0), and (1,1).  The output of XOR is 1 if the two inputs are different [(1,0) and (0,1)] and 0 if the inputs are the same [(1,1) and (0,0)].  Thus the training set is 4 vectors.  </p>
+</div></div>
+
+
+
+<div style="height:27px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p>If we investigate the solution space [0, 1] x [0, 1], there are many correct solutions to this problem.  The 4 corners of the space are constrained and the system can learn several weights that will give the correct solutions to the training set but with different solutions on the interior of the domain.</p>
+
+
+
+<p>When 2 nodes are included in the hidden layer, the result will sometimes give a correct solution (below left) but sometimes not (below right).  Notice that only 2 of the 4 training vectors are correctly satisfied in the solution on the right. The weights are initialized randomly so it might be a function of those starting weights and hysteresis.  </p>
+
+
+
+<figure class="wp-block-gallery columns-2 is-cropped"><ul class="blocks-gallery-grid"><li class="blocks-gallery-item"><figure><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-03-at-11.07.44-AM.png" alt="" data-id="192" data-full-url="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-03-at-11.07.44-AM.png" data-link="https://mjplumley.github.io/portfolio/2020/06/02/neural-network-xor/screen-shot-2020-06-03-at-11-07-44-am/#main" class="wp-image-192" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-03-at-11.07.44-AM.png 850w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-03-at-11.07.44-AM-300x198.png 300w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-03-at-11.07.44-AM-768x508.png 768w" sizes="(max-width: 850px) 100vw, 850px" /></figure></li><li class="blocks-gallery-item"><figure><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-03-at-11.09.17-AM.png" alt="" data-id="191" class="wp-image-191" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-03-at-11.09.17-AM.png 838w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-03-at-11.09.17-AM-300x200.png 300w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-03-at-11.09.17-AM-768x511.png 768w" sizes="(max-width: 838px) 100vw, 838px" /></figure></li></ul><figcaption class="blocks-gallery-caption"><span style="color:#c4edf0" class="has-inline-color">A correct (left) and incorrect (right) solution.</span></figcaption></figure>
+
+
+
+<p>When 4 nodes are included in the hidden layer, the system no longer gets caught between solutions and consistently produces correct solutions. Examples of the many correct solutions are shown below.</p>
+
+
+
+<figure class="wp-block-gallery aligncenter columns-2 is-cropped"><ul class="blocks-gallery-grid"><li class="blocks-gallery-item"><figure><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-03-at-11.02.30-AM.png" alt="" data-id="190" class="wp-image-190" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-03-at-11.02.30-AM.png 840w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-03-at-11.02.30-AM-300x200.png 300w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-03-at-11.02.30-AM-768x512.png 768w" sizes="(max-width: 840px) 100vw, 840px" /></figure></li><li class="blocks-gallery-item"><figure><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/XOR_solutions-1.png" alt="" data-id="195" data-link="https://mjplumley.github.io/portfolio/2020/06/02/neural-network-xor/xor_solutions-1/#main" class="wp-image-195" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/XOR_solutions-1.png 695w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/XOR_solutions-1-300x207.png 300w" sizes="(max-width: 695px) 100vw, 695px" /></figure></li></ul><figcaption class="blocks-gallery-caption"><span style="color:#c4edf0" class="has-inline-color">All correct solutions.</span></figcaption></figure>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<h2 class="has-text-align-center"><strong>Code</strong></h2>
+
+
+
+<h4><strong>Main File</strong></h4>
+
+
+
+<pre class="wp-block-code"><code>import numpy as np
+import random
+import matplotlib.pyplot as plt
+# NEED TO IMPORT THE NEURALNETWORK CLASS FILE
+
+training_data = &#91; &#91;1,1,0], &#91;0,0,0],&#91;1,0,1],&#91;0,1,1]  ]
+brain = NeuralNetwork(2,4,1)
+# TRAINING IT FOR THE XOR 
+for i in range(50000):
+    r = np.floor(4*(random.random()))
+    data = training_data&#91;int(r)] 
+    brain.train(data&#91;:2],data&#91;2])
+ 
+# PLOT THE RESULTS OVER THE &#91;0,1]x&#91;0,1] DOMAIN
+x = y = np.arange(0, 1.0, 0.01)
+X, Y = np.meshgrid(x, y)
+Z = np.zeros(&#91;100,100])
+for ptx in x:
+    for pty in y:
+        Z&#91;int(100*ptx + .01), int(100*pty + .01)] = brain.feed_forward(&#91;ptx,pty])
+plt.contourf(X, Y, Z, 20, cmap='RdGy')
+plt.colorbar();</code></pre>
+
+
+
+<h4><strong>NeuralNetwork Class File</strong></h4>
+
+
+
+<pre class="wp-block-code"><code>import numpy as np
+import random
+
+def sigmoid(x):
+    return 1/(1 + np.exp(-x))
+
+
+class NeuralNetwork:
+    
+    def __init__(self, numI, numH, numO, lr = 0.1):
+        self.input_nodes =  numI
+        self.hidden_nodes = numH
+        self.output_nodes = numO
+        
+        self.weights_ih = np.random.rand(numH,numI)
+        self.weights_ho = np.random.rand(numO,numH)
+        
+        self.bias_h = np.random.rand(numH)
+        self.bias_o = np.random.rand(numO)
+        self.lr = lr
+
+        
+    def feed_forward(self, inputs):
+        hidden = np.dot(self.weights_ih,inputs)
+        hidden = hidden + self.bias_h
+        # ACTIVATION
+        hidden = sigmoid(hidden) 
+        
+        output = np.dot(self.weights_ho, hidden)
+        guess = sigmoid(output + self.bias_o)
+        return guess
+    
+    
+    def train(self, inputs, targets):
+        # Feed forward in here to have the hidden 
+        hidden = np.dot(self.weights_ih,inputs)
+        hidden = hidden + self.bias_h
+        # ACTIVATION
+        hidden = sigmoid(hidden) 
+        
+        outputs = np.dot(self.weights_ho, hidden)
+        outputs = sigmoid(outputs + self.bias_o)
+        
+        output_errors = targets - outputs
+        gradient_output = outputs*(1-outputs)
+        weights_ho_change = self.lr*np.outer(gradient_output* output_errors, hidden.T)
+        self.weights_ho += weights_ho_change
+        self.bias_o += self.lr*gradient_output*output_errors
+        
+        hidden_errors = np.dot(self.weights_ho.T, output_errors)
+        gradient_hidden = hidden*(1-hidden)
+        weights_ih_change = self.lr*np.outer(gradient_hidden* hidden_errors, inputs)
+        self.weights_ih += weights_ih_change
+        self.bias_h += self.lr*gradient_hidden*hidden_errors
+        </code></pre>
+
+
+
+<p></p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>

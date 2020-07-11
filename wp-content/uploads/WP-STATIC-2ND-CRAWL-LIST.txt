@@ -1,0 +1,14 @@
+/author/mjplumley/
+/category/all/feed/
+/category/data-science/feed/
+/category/fluid-dynamics/feed/
+/category/python/feed/
+/comments/feed/
+/cv/
+/feed/
+/tag/python/feed/
+/wp-includes/css/dist/block-library/style.min.css
+/wp-includes/js/jquery/jquery-migrate.min.js
+/wp-includes/js/jquery/jquery.js
+/wp-json/
+/wp-json/oembed/1.0/embed

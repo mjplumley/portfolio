@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en-US"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Recommender Problem: Netflix Data – Meredith Plumley</title><link rel="dns-prefetch" href="//fonts.googleapis.com"><link rel="dns-prefetch" href="//s.w.org"><link rel="stylesheet" id="wp-block-library-css" href="https://mjplumley.github.io/portfolio/wp-includes/css/dist/block-library/style.min.css" type="text/css" media="all"><link rel="stylesheet" id="amphibious-bootstrap-grid-css" href="https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/css/bootstrap-grid.css" type="text/css" media="all"><link rel="stylesheet" id="font-awesome-5-css" href="https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/css/fontawesome-all.css" type="text/css" media="all"><link rel="stylesheet" id="amphibious-fonts-css" href="https://fonts.googleapis.com/css?family=Poppins%3A400%2C400i%2C700%2C700i%7CRubik%3A400%2C400i%2C700%2C700i&subset=latin%2Clatin-ext" type="text/css" media="all"><link rel="stylesheet" id="amphibious-style-css" href="https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/style.css" type="text/css" media="all"><style id="amphibious-style-inline-css" type="text/css">
+.blog .posted-on,.archive .posted-on,.search .posted-on,.blog .cat-links,.archive .cat-links,.search .cat-links,.blog .byline,.archive .byline,.search .byline,.blog .comments-link,.archive .comments-link,.search .comments-link,.single .posted-on,.single .cat-links,.single .tags-links,.single .byline,.archive-title-control,.credits-designer { clip: rect(1px, 1px, 1px, 1px); position: absolute; }
+</style><script type="text/javascript" src="https://mjplumley.github.io/portfolio/wp-includes/js/jquery/jquery.js"></script><script type="text/javascript" src="https://mjplumley.github.io/portfolio/wp-includes/js/jquery/jquery-migrate.min.js"></script><style type="text/css">
+		.site-header {
+			background-image: url(https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/cropped-background.jpg);
+			background-repeat: no-repeat;
+			background-position: top center;
+			-webkit-background-size: cover;
+			   -moz-background-size: cover;
+			     -o-background-size: cover;
+			        background-size: cover;
+		}
+	</style><style type="text/css">
+			.site-title a,
+		.site-title a:visited {
+			color: #ffffff;
+		}
+		.site-title a:hover,
+		.site-title a:focus,
+		.site-title a:active {
+			opacity: 0.7;
+		}
+		.site-description {
+			color: #ffffff;
+			opacity: 0.7;
+		}
+		</style><style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #44443f; }
+</style><link rel="icon" href="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/cropped-LOGOmp-1-32x32.png" sizes="32x32"><link rel="icon" href="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/cropped-LOGOmp-1-192x192.png" sizes="192x192"><link rel="apple-touch-icon" href="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/cropped-LOGOmp-1-180x180.png"><meta name="msapplication-TileImage" content="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/cropped-LOGOmp-1-270x270.png"></head><body class="post-template-default single single-post postid-145 single-format-standard custom-background has-site-branding has-custom-header has-wide-layout has-no-sidebar">
+<div id="page" class="site-wrapper site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	
+<header id="masthead" class="site-header"><div class="container">
+		<div class="row">
+			<div class="col">
+
+				<div class="site-header-inside-wrapper">
+					
+<div class="site-branding-wrapper">
+	<div class="site-logo-wrapper"></div>
+	<div class="site-branding">
+					<p class="site-title"><a href="https://mjplumley.github.io/portfolio/" title="Meredith Plumley" rel="home">Meredith Plumley</a></p>
+		
+				<p class="site-description">
+			PhD Applied Mathematician 		</p>
+			</div>
+</div>
+
+<nav id="site-navigation" class="main-navigation"><div class="main-navigation-inside">
+		<div class="toggle-menu-wrapper">
+			<a href="#header-menu-responsive" title="Menu" class="toggle-menu-control">
+				<span class="toggle-menu-label">Menu</span>
+			</a>
+		</div>
+
+		<div class="site-header-menu-wrapper site-header-menu-responsive-wrapper"><ul id="menu-1" class="site-header-menu site-header-menu-responsive"><li id="menu-item-28" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-28"><a href="https://mjplumley.github.io/portfolio/">Projects</a>
+<ul class="sub-menu"><li id="menu-item-184" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-184"><a href="https://mjplumley.github.io/portfolio/category/data-science/">Data Science</a></li>
+	<li id="menu-item-185" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-185"><a href="https://mjplumley.github.io/portfolio/category/fluid-dynamics/">Fluid Dynamics</a></li>
+</ul></li>
+<li id="menu-item-102" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-102"><a href="https://mjplumley.github.io/portfolio/cv/">About me</a></li>
+<li id="menu-item-101" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-101"><a target="_blank" rel="noopener noreferrer" href="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/CV_MeredithPlumley.pdf">CV</a></li>
+</ul></div>	</div>
+</nav></div>
+
+			</div>
+		</div>
+	</div>
+</header><div id="content" class="site-content">
+
+	<div class="site-content-inside">
+		<div class="container">
+			<div class="row">
+
+				<div id="primary" class="content-area col">
+					<main id="main" class="site-main"><div id="post-wrapper" class="post-wrapper post-wrapper-single post-wrapper-single-post">
+												
+							
+<div class="post-wrapper-hentry">
+	<article id="post-145" class="post-145 post type-post status-publish format-standard has-post-thumbnail hentry category-all category-data-science has-post-thumbnail-archive"><div class="post-content-wrapper post-content-wrapper-single post-content-wrapper-single-post">
+
+			<div class="entry-image-wrapper-single"><figure class="post-thumbnail"><img width="1282" height="1054" src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-10.55.12-AM.png" class="img-featured img-responsive wp-post-image" alt="" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-10.55.12-AM.png 1282w,https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-10.55.12-AM-300x247.png 300w,https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-10.55.12-AM-1024x842.png 1024w,https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-10.55.12-AM-768x631.png 768w" sizes="(max-width: 1282px) 100vw, 1282px"></figure></div>
+			<div class="entry-data-wrapper">
+				<div class="entry-header-wrapper">
+					<header class="entry-header"><h1 class="entry-title">Recommender Problem: Netflix Data</h1>					</header><div class="entry-meta entry-meta-header-after">
+						<span class="byline entry-meta-icon">by <span class="author vcard"><a class="entry-author-link url fn n" href="https://mjplumley.github.io/portfolio/author/mjplumley/" rel="author"><span class="entry-author-name">mjplumley</span></a></span></span><span class="posted-on entry-meta-icon"><span class="screen-reader-text">Posted on</span><a href="https://mjplumley.github.io/portfolio/2020/01/02/recommender-problem-netflix-data/" rel="bookmark"><time class="entry-date published" datetime="2020-01-02T08:54:09+00:00">January 2, 2020</time><time class="updated" datetime="2020-07-10T13:19:59+00:00">July 10, 2020</time></a></span>					</div>
+				</div>
+
+				<div class="entry-content">
+					
+<p> Netflix collects user’s movie ratings in order to better recommend new movies to those users as well as predict how much a different user might enjoy a certain film. In this project, I explore how, given a large matrix of these rankings, we can minimize the error in our recommendations while keeping the computational cost tractable.  The focus here is on collaborative filtering methods, where  the recommendations are based on the ratings of other users.</p>
+
+
+
+<p>The data used to construct the matrix <em>A</em> is from <a rel="noreferrer noopener" href="http://movielens.umn.edu" target="_blank">movielens.umn.edu</a>. They collected data during a seven-month period from September 19th, 1997 through April 22nd, 1998. The data consists of 100,000 ratings (1-5) from 943 users on 1682 movies. Each user has rated at least 20 movies [Grouplens]. If a user has not rated a movie, that is left as a zero.</p>
+
+
+
+<p></p>
+
+
+
+<p>The testing matrix denoted <em>A_test</em> uses a percentage of our data matrix <em>A</em>. Let <em>A_approx</em> be the approximation of the testing matrix <em>A_test</em> produced by the following methods. The error for comparison uses the root mean squared error (RMSE) of <em>A_test </em>– <em>A_approx</em>.</p>
+
+
+
+<hr class="wp-block-separator"><h2 class="has-text-align-center">Nearest Neighbors Method</h2>
+
+
+
+<p>The most intuitive method for creating a recommendation is to use the nearest-neighbors method. The idea behind this method is to search through the rest of the users to find others who have similar tastes and use their ratings for the predictions.  This is an example of user-based collaborative filtering. </p>
+
+
+
+<p>Formally, this method creates a matrix with values that represent the number of connections between two users, where connections are based off the number of ratings that the users agree on. The connection is calculated using the Guassian kernal. </p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-11.07.10-AM.png" alt="" class="wp-image-150" width="235" height="241" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-11.07.10-AM.png 808w,https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-11.07.10-AM-293x300.png 293w,https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-11.07.10-AM-768x787.png 768w" sizes="(max-width: 235px) 100vw, 235px"><figcaption><span style="color:#c4edf0" class="has-text-color has-normal-font-size"> The Root Mean Squared Error as a function of <em>k</em> neighbors for a test matrix using 35% of the data to test.</span> </figcaption></figure></div>
+
+
+
+<p>The computational cost of this method is fairly large. It must calculate the norm difference between all the users over all the non-zero entries of the user whose ratings we are trying to predict. While the matrix is sparse, it is still calculating all the norms before searching for the smallest <em>k</em> entries</p>
+
+
+
+<hr class="wp-block-separator"><h2 class="has-text-align-center">Singular Value Decomposition Method</h2>
+
+
+
+<p>Another method for investigating this is using a model based system, relying on matrix methods and dimensionality reduction.  The Singular Value Decomposition is a well known factorization method. It decomposes a real or complex rectangular matrix <em>A</em> into the product of three matrices, such that  <em>A = USV</em>.   The first<em> r </em>= rank(<em>A</em>) diagonal entries of <em>S</em>, denoted as sigma, are the ordered singular values of <em>A</em>.  The columns of <em>U</em> and <em>V</em> are, respectively, the left-singular vectors and right-singular vectors of <em>A</em>.</p>
+
+
+
+<p>For the Netflix problem, the rows of <em>A </em>represent users and the columns of <em>A</em> represent movies. The SVD of <em>A</em> offers the ability to view hidden features that are not readily represented in the matrix <em>A</em>. For example the hidden features could be genres, actors, or a general preference for movie watching. Thus the matrix <em>U</em> relates users to the feature space and <em>V</em> relates the movies to the feature space. The singular values represented in <em>S</em> scale the features. The higher the singular value, the more important the feature is in relating the users to movies [Ullman].</p>
+
+
+
+<p>Due to the size of our problem we would like to reduce the number of computations required. One way to accomplish this is to reduce the dimension of our SVD decomposition to get an approximate matrix to our original. This process is called <strong>Dimensionality Reduction</strong>. One method of dimensionally reduction is called rank reduction, which chooses the largest <em>k < r</em> singular values and their corresponding left and right singular vectors.  We can also note that only the top <em>k</em> features in our feature space are important in determining the ratings.</p>
+
+
+
+<p></p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-10.55.51-AM-1024x533.png" alt="" class="wp-image-154" width="355" height="184" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-10.55.51-AM-1024x533.png 1024w,https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-10.55.51-AM-300x156.png 300w,https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-10.55.51-AM-768x400.png 768w,https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-10.55.51-AM-1536x799.png 1536w,https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-10.55.51-AM.png 1568w" sizes="(max-width: 355px) 100vw, 355px"></figure></div>
+
+
+
+<p></p>
+
+
+
+<p>Let us split the data matrix <em>A</em> into three separate matrices as shown below, where <em>D</em> is the testing matrix.   We then do SVD rank reduction on both B and C such that we choose the top k singular values.  An  approximation of the whole ranking matrix by multiplying the left singular vectors of <em>C</em>, the square root of the singular values of <em>C</em>, the square root of the singular values of <em>B</em> and the right singular vectors of <em>B</em>. </p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-10.56.04-AM-1024x525.png" alt="" class="wp-image-153" width="434" height="222" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-10.56.04-AM-1024x525.png 1024w,https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-10.56.04-AM-300x154.png 300w,https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-10.56.04-AM-768x393.png 768w,https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-10.56.04-AM.png 1296w" sizes="(max-width: 434px) 100vw, 434px"></figure></div>
+
+
+
+<p>The computational cost of this method is fairly small. The most expensive cost is preforming the SVD on the two matrices <em>B </em>and <em>C</em> that act like our training matrices. Once we have the SVD decomposition, forming our testing matrix with a low <em>k</em> value is relatively cheap since our <em>k</em> value is small.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-11.57.23-AM-1024x813.png" alt="" class="wp-image-160" width="395" height="313" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-11.57.23-AM-1024x813.png 1024w,https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-11.57.23-AM-300x238.png 300w,https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-11.57.23-AM-768x610.png 768w,https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-11.57.23-AM.png 1446w" sizes="(max-width: 395px) 100vw, 395px"><figcaption><span class="has-text-color has-normal-font-size" style="color:#c4edf0"> Error as a function of the number of singular values included.  The minimum at <em>k</em> = 15 is 1.52 (excluding the case of <em>k</em>=1). </span>  </figcaption></figure></div>
+
+
+
+<figure class="wp-block-table aligncenter is-style-stripes"><table><tbody><tr><td><span class="has-inline-color has-very-dark-gray-color">Method</span></td><td><span class="has-inline-color has-very-dark-gray-color">Nearest Neighbors</span></td><td><span class="has-inline-color has-very-dark-gray-color">SVD</span></td></tr><tr><td>Lowest RMS Error</td><td>0.47</td><td>1.52</td></tr></tbody></table></figure><div style="height:35px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p>By RMSE, the Nearest Neighbor method preformed the best.  However, both methods tended to produce many ratings around 3 – the middle score. Relatively, the data set used for our analysis is small compared to the actual Netflix problem.  While the nearest neighbors method does provide a better RSME, the computational cost makes it intractable for large matrices, and the SVD method provides a cost-effective alternative. </p>
+
+
+
+<div style="height:101px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-12.00.32-PM-1024x682.png" alt="" class="wp-image-162" width="536" height="357" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-12.00.32-PM-1024x682.png 1024w,https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-12.00.32-PM-300x200.png 300w,https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-12.00.32-PM-768x511.png 768w,https://mjplumley.github.io/portfolio/wp-content/uploads/2020/06/Screen-Shot-2020-06-02-at-12.00.32-PM.png 1238w" sizes="(max-width: 536px) 100vw, 536px"></figure></div>
+
+
+
+<p></p>
+									</div>
+
+				<footer class="entry-meta entry-meta-footer"><span class="cat-links cat-links-single">Posted in <a href="https://mjplumley.github.io/portfolio/category/all/" rel="category tag">All</a>, <a href="https://mjplumley.github.io/portfolio/category/data-science/" rel="category tag">Data Science</a></span>				</footer></div>
+
+		</div>
+	</article></div>
+
+							
+							
+	<nav class="navigation post-navigation" role="navigation" aria-label="Posts"><h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="https://mjplumley.github.io/portfolio/2020/01/01/neural-network-xor/" rel="prev"><span class="meta-nav">Prev</span> <span class="post-title">Neural Network XOR</span></a></div><div class="nav-next"><a href="https://mjplumley.github.io/portfolio/2020/01/03/modeling-ash-distribution/" rel="next"><span class="meta-nav">Next</span> <span class="post-title">Modeling ash distribution</span></a></div></div>
+	</nav></div>
+
+					</main></div>
+
+				
+			</div>
+		</div>
+	</div>
+
+
+	</div>
+
+	<footer id="colophon" class="site-footer"><div class="site-info">
+	<div class="site-info-inside">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col">
+					<div class="credits-wrapper">
+						<div class="credits credits-blog"></div><div class="credits credits-designer">Amphibious Theme by <a href="https://templatepocket.com" title="TemplatePocket">TemplatePocket</a> <span>⋅</span> Powered by <a href="https://wordpress.org" title="WordPress">WordPress</a></div>					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+	</footer></div>
+
+<div class="overlay-effect"></div>
+
+<script type="text/javascript" src="https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/js/enquire.js"></script><script type="text/javascript" src="https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/js/fitvids.js"></script><script type="text/javascript" src="https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/js/hover-intent.js"></script><script type="text/javascript" src="https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/js/superfish.js"></script><script type="text/javascript" src="https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/js/custom.js"></script></body></html>

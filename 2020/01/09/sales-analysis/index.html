@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<title>Time series sales analysis &#8211; Meredith Plumley</title>
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Meredith Plumley &raquo; Feed" href="https://mjplumley.github.io/portfolio/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Meredith Plumley &raquo; Comments Feed" href="https://mjplumley.github.io/portfolio/comments/feed/" />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://mjplumley.github.io/portfolio/wp-includes/css/dist/block-library/style.min.css?ver=5.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='amphibious-bootstrap-grid-css'  href='https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/css/bootstrap-grid.css?ver=5.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-5-css'  href='https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/css/fontawesome-all.css?ver=5.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='amphibious-fonts-css'  href='https://fonts.googleapis.com/css?family=Poppins%3A400%2C400i%2C700%2C700i%7CRubik%3A400%2C400i%2C700%2C700i&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='amphibious-style-css'  href='https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/style.css?ver=5.4.2' type='text/css' media='all' />
+<style id='amphibious-style-inline-css' type='text/css'>
+.blog .posted-on,.archive .posted-on,.search .posted-on,.blog .cat-links,.archive .cat-links,.search .cat-links,.blog .byline,.archive .byline,.search .byline,.blog .comments-link,.archive .comments-link,.search .comments-link,.single .posted-on,.single .cat-links,.single .tags-links,.single .byline,.archive-title-control,.credits-designer { clip: rect(1px, 1px, 1px, 1px); position: absolute; }
+</style>
+<script type='text/javascript' src='https://mjplumley.github.io/portfolio/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://mjplumley.github.io/portfolio/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://mjplumley.github.io/portfolio/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://mjplumley.github.io/portfolio/xmlrpc.php?rsd" />
+<link rel='prev' title='Connect4 vs AI (minimax)' href='https://mjplumley.github.io/portfolio/2020/01/08/connect4-vs-ai-minimax/' />
+<link rel='next' title='Rotating fluid dynamics' href='https://mjplumley.github.io/portfolio/2020/01/10/rotating-fluid-dynamics/' />
+<meta name="generator" content="WordPress 5.4.2" />
+<link rel="canonical" href="https://mjplumley.github.io/portfolio/2020/01/09/sales-analysis/" />
+<link rel='shortlink' href='https://mjplumley.github.io/portfolio/?p=97' />
+<link rel="alternate" type="application/json+oembed" href="https://mjplumley.github.io/portfolio/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmjplumley.github.io%2Fportfolio%2F2020%2F01%2F09%2Fsales-analysis%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://mjplumley.github.io/portfolio/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmjplumley.github.io%2Fportfolio%2F2020%2F01%2F09%2Fsales-analysis%2F&#038;format=xml" />
+
+		<style type="text/css">
+		.site-header {
+			background-image: url(https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/cropped-background.jpg);
+			background-repeat: no-repeat;
+			background-position: top center;
+			-webkit-background-size: cover;
+			   -moz-background-size: cover;
+			     -o-background-size: cover;
+			        background-size: cover;
+		}
+	</style>
+	
+		<style type="text/css">
+			.site-title a,
+		.site-title a:visited {
+			color: #ffffff;
+		}
+		.site-title a:hover,
+		.site-title a:focus,
+		.site-title a:active {
+			opacity: 0.7;
+		}
+		.site-description {
+			color: #ffffff;
+			opacity: 0.7;
+		}
+		</style>
+
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #44443f; }
+</style>
+	<link rel="icon" href="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/cropped-LOGOmp-1-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/cropped-LOGOmp-1-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/cropped-LOGOmp-1-180x180.png" />
+<meta name="msapplication-TileImage" content="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/cropped-LOGOmp-1-270x270.png" />
+</head>
+<body class="post-template-default single single-post postid-97 single-format-standard custom-background has-site-branding has-custom-header has-wide-layout has-no-sidebar">
+<div id="page" class="site-wrapper site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	
+<header id="masthead" class="site-header">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+
+				<div class="site-header-inside-wrapper">
+					
+<div class="site-branding-wrapper">
+	<div class="site-logo-wrapper"></div>
+	<div class="site-branding">
+					<p class="site-title"><a href="https://mjplumley.github.io/portfolio/" title="Meredith Plumley" rel="home">Meredith Plumley</a></p>
+		
+				<p class="site-description">
+			PhD Applied Mathematician 		</p>
+			</div>
+</div><!-- .site-branding-wrapper -->
+
+<nav id="site-navigation" class="main-navigation">
+	<div class="main-navigation-inside">
+		<div class="toggle-menu-wrapper">
+			<a href="#header-menu-responsive" title="Menu" class="toggle-menu-control">
+				<span class="toggle-menu-label">Menu</span>
+			</a>
+		</div>
+
+		<div class="site-header-menu-wrapper site-header-menu-responsive-wrapper"><ul id="menu-1" class="site-header-menu site-header-menu-responsive"><li id="menu-item-28" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-28"><a href="https://mjplumley.github.io/portfolio/">Projects</a>
+<ul class="sub-menu">
+	<li id="menu-item-184" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-184"><a href="https://mjplumley.github.io/portfolio/category/data-science/">Data Science</a></li>
+	<li id="menu-item-185" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-185"><a href="https://mjplumley.github.io/portfolio/category/fluid-dynamics/">Fluid Dynamics</a></li>
+</ul>
+</li>
+<li id="menu-item-102" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-102"><a href="https://mjplumley.github.io/portfolio/cv/">About me</a></li>
+<li id="menu-item-101" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-101"><a target="_blank" rel="noopener noreferrer" href="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/CV_MeredithPlumley.pdf">CV</a></li>
+</ul></div>	</div><!-- .main-navigation-inside -->
+</nav><!-- .main-navigation -->
+				</div><!-- .site-header-inside-wrapper -->
+
+			</div><!-- .col -->
+		</div><!-- .row -->
+	</div><!-- .container -->
+</header><!-- #masthead -->
+
+	<div id="content" class="site-content">
+
+	<div class="site-content-inside">
+		<div class="container">
+			<div class="row">
+
+				<div id="primary" class="content-area col">
+					<main id="main" class="site-main">
+
+						<div id="post-wrapper" class="post-wrapper post-wrapper-single post-wrapper-single-post">
+												
+							
+<div class="post-wrapper-hentry">
+	<article id="post-97" class="post-97 post type-post status-publish format-standard has-post-thumbnail hentry category-all category-data-science category-python has-post-thumbnail-archive">
+		<div class="post-content-wrapper post-content-wrapper-single post-content-wrapper-single-post">
+
+			<div class="entry-image-wrapper-single"><figure class="post-thumbnail"><img width="1920" height="680" src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-06-03-at-3.00.56-PM-1920x680.png" class="img-featured img-responsive wp-post-image" alt="" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-06-03-at-3.00.56-PM-1920x680.png 1920w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-06-03-at-3.00.56-PM-300x106.png 300w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-06-03-at-3.00.56-PM-1024x363.png 1024w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-06-03-at-3.00.56-PM-768x272.png 768w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-06-03-at-3.00.56-PM-1536x544.png 1536w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-06-03-at-3.00.56-PM.png 2032w" sizes="(max-width: 1920px) 100vw, 1920px" /></figure></div>
+			<div class="entry-data-wrapper">
+				<div class="entry-header-wrapper">
+					<header class="entry-header">
+						<h1 class="entry-title">Time series sales analysis</h1>					</header><!-- .entry-header -->
+
+					<div class="entry-meta entry-meta-header-after">
+						<span class="byline entry-meta-icon">by <span class="author vcard"><a class="entry-author-link url fn n" href="https://mjplumley.github.io/portfolio/author/mjplumley/" rel="author"><span class="entry-author-name">mjplumley</span></a></span></span><span class="posted-on entry-meta-icon"><span class="screen-reader-text">Posted on</span><a href="https://mjplumley.github.io/portfolio/2020/01/09/sales-analysis/" rel="bookmark"><time class="entry-date published" datetime="2020-01-09T11:44:16+00:00">January 9, 2020</time><time class="updated" datetime="2020-07-10T13:30:50+00:00">July 10, 2020</time></a></span>					</div><!-- .entry-meta -->
+				</div><!-- .entry-header-wrapper -->
+
+				<div class="entry-content">
+					
+<p>One of the largest problems retailers face is the prediction of sales.  If the exact demand can be known, retailers can avoid the losses from being either overstocked or out of stock.  Given the order times that most retailers face, including production and shipping, this means that they must predict the demand at least several months into the future using the data they currently have available.  </p>
+
+
+
+<p>This data is taken from an amazon seller, looking to make better forecasting  decisions for product ordering.  </p>
+
+
+
+<p></p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/sales_by_state19_20-copy.jpg" alt="" class="wp-image-136" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/sales_by_state19_20-copy.jpg 883w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/sales_by_state19_20-copy-300x119.jpg 300w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/sales_by_state19_20-copy-768x304.jpg 768w" sizes="(max-width: 883px) 100vw, 883px" /><figcaption><span style="color:#c4edf0" class="has-text-color has-normal-font-size"> The total sales by state, which correlates with the state populations.</span> </figcaption></figure>
+
+
+
+<p>There are several trends evident in the time series of the daily sales.  There are trends on the yearly timescale, including peaks in Q1 and Q3 and a decline during Q2. The massive decline during the COVID-19 crisis in March/April 2020 is evident as a major one-time event.  There is also a larger trend towards fewer sales overall toward the end of 2019 as well as an uptick after May 2020.  </p>
+
+
+
+<p>The goal is to be able to capture some of these trends into a prediction of the sales to forecast the order quantities for the seller.  There are several strategies for doing this, two of which I outline below. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/sales_daily_tanold-1024x367.png" alt="" class="wp-image-272" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/sales_daily_tanold-1024x367.png 1024w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/sales_daily_tanold-300x108.png 300w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/sales_daily_tanold-768x275.png 768w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/sales_daily_tanold-1536x551.png 1536w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/sales_daily_tanold-1920x688.png 1920w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/sales_daily_tanold.png 2042w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><span style="color:#c4edf0" class="has-text-color has-normal-font-size"> Sales of a specific product over the last 3 years with the rolling averages of 30 days, 60 days and 1 year.</span>  </figcaption></figure>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<h2 class="has-text-color has-text-align-center" style="color:#47bec9">Formula 1</h2>
+
+
+
+<p>This method of prediction is based on the sales during the last 30 and 60 days to capture how the product is currently selling but uses the slope information from previous years to account for historical changes.  This slope is calculated as the rate from the previous year compared to the actual sales and will capture information from yearly repeating but time-isolated increases or decreases in sales, such as for holidays or seasonal variations.  </p>
+
+
+
+<p>This slope is multiplied by the averaged past 30 and 60 day sales to get an expected/predicted daily sales value.  The quantity to order can then be calculated as the predicted daily sales rate times the number of days stock you want to have, which is a function of the production, shipping time, and storage fees.  Typically I would take it to be between 30-90 days. </p>
+
+
+
+<h3 class="has-text-color has-text-align-center" style="color:#c4edf0"><em>Quantity = predicted average daily sales * days of stock desired</em></h3>
+
+
+
+<p>This method relies only on the past sales data to calculate and is less dependent on inputs.</p>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<h2 class="has-text-color has-text-align-center" style="color:#47bec9">Formula 2</h2>
+
+
+
+<p>We can also try to model the daily sales based on the past data and predict the variations of the sales over future days with more precision.  The simplest model to come up with a linear model that uses various features of the data as the variables and fits coefficients to them to measure the influence of those features on the daily sales. This can be expressed as a function like:</p>
+
+
+
+<h3 class="has-text-color has-text-align-center" style="color:#c4edf0"><em>Daily Sales = c0 + c1(Mon), + c2(Tue) + &#8230; + c8(Jan) + c9(Feb) + &#8230; + c20(Holiday)</em></h3>
+
+
+
+<p>Here the <em>c</em>&#8216;s are the coefficients and the features are represented as <em>Mon</em> for Monday, <em>Tue</em> for Tuesday, and all the other days of the week, the months are represented as <em>Jan</em>, <em>Feb</em>, etc and a few other features are included as well, including if the day is a <em>holiday</em>, the week before a holiday and a counter for annual increase.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.51-PM-1024x364.png" alt="" class="wp-image-276" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.51-PM-1024x364.png 1024w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.51-PM-300x107.png 300w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.51-PM-768x273.png 768w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.51-PM-1536x545.png 1536w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.51-PM-2048x727.png 2048w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.51-PM-1920x682.png 1920w" sizes="(max-width: 1024px) 100vw, 1024px" /><figcaption><span class="has-text-color has-normal-font-size" style="color:#c4edf0"> Sales of a specific product over the last 3 years in orange with the modeled prediction, in blue for the forecast and green for the fit.</span></figcaption></figure>
+
+
+
+<p>The model is fit using the Linear Regression from sklearn.  The coefficients it finds are listed in the table below and indicate how each feature impacts the daily sales.  Looking at the day of the week, Monday &#8211; Wedensday account for higher sales.  Looking at the months, April-Jun account for the highest sales.   Holidays lead to less sales on the day and there is an annual increase of 0.3 sales per day. </p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.59-PM.png" alt="" class="wp-image-277" width="374" height="411" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.59-PM.png 748w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/07/Screen-Shot-2020-07-10-at-2.51.59-PM-272x300.png 272w" sizes="(max-width: 374px) 100vw, 374px" /><figcaption><span style="color:#c4edf0" class="has-text-color has-normal-font-size"> List of the values and errors of the coefficients for the fit of the linear model.</span>  </figcaption></figure></div>
+
+
+
+<p>This model can also be used to predict the forecasted units by summing over the desired period of time.  This model provides for more daily variation and precision in the forecasting. However, the quality of the model depends highly on the features given to it.  For instance, without the monthly features, the model will not vary on the monthly scale and that seasonal variation will not be included.  More features could be added here to improve the model. </p>
+									</div><!-- .entry-content -->
+
+				<footer class="entry-meta entry-meta-footer">
+					<span class="cat-links cat-links-single">Posted in <a href="https://mjplumley.github.io/portfolio/category/all/" rel="category tag">All</a>, <a href="https://mjplumley.github.io/portfolio/category/data-science/" rel="category tag">Data Science</a>, <a href="https://mjplumley.github.io/portfolio/category/python/" rel="category tag">Python</a></span>				</footer><!-- .entry-meta -->
+			</div><!-- .entry-data-wrapper -->
+
+		</div><!-- .post-content-wrapper -->
+	</article><!-- #post-## -->
+</div><!-- .post-wrapper-hentry -->
+
+							
+							
+	<nav class="navigation post-navigation" role="navigation" aria-label="Posts">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="https://mjplumley.github.io/portfolio/2020/01/08/connect4-vs-ai-minimax/" rel="prev"><span class="meta-nav">Prev</span> <span class="post-title">Connect4 vs AI (minimax)</span></a></div><div class="nav-next"><a href="https://mjplumley.github.io/portfolio/2020/01/10/rotating-fluid-dynamics/" rel="next"><span class="meta-nav">Next</span> <span class="post-title">Rotating fluid dynamics</span></a></div></div>
+	</nav>
+							
+												</div><!-- .post-wrapper -->
+
+					</main><!-- #main -->
+				</div><!-- #primary -->
+
+				
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</div><!-- .site-content-inside -->
+
+
+	</div><!-- #content -->
+
+	<footer id="colophon" class="site-footer">
+		
+<div class="site-info">
+	<div class="site-info-inside">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col">
+					<div class="credits-wrapper">
+						<div class="credits credits-blog"></div><div class="credits credits-designer">Amphibious Theme by <a href="https://templatepocket.com" title="TemplatePocket">TemplatePocket</a> <span>&sdot;</span> Powered by <a href="https://wordpress.org" title="WordPress">WordPress</a></div>					</div><!-- .credits -->
+				</div><!-- .col -->
+			</div><!-- .row -->
+
+		</div><!-- .container -->
+
+	</div><!-- .site-info-inside -->
+</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+
+</div><!-- #page .site-wrapper -->
+
+<div class="overlay-effect"></div><!-- .overlay-effect -->
+
+<script type='text/javascript' src='https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/js/enquire.js?ver=2.1.6'></script>
+<script type='text/javascript' src='https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/js/fitvids.js?ver=1.1'></script>
+<script type='text/javascript' src='https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/js/hover-intent.js?ver=r7'></script>
+<script type='text/javascript' src='https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/js/superfish.js?ver=1.7.10'></script>
+<script type='text/javascript' src='https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/js/custom.js?ver=1.0'></script>
+</body>
+</html>
