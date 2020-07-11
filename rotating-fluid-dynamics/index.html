@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<title>Rotating fluid dynamics &#8211; Meredith Plumley</title>
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Meredith Plumley &raquo; Feed" href="https://mjplumley.github.io/portfolio/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Meredith Plumley &raquo; Comments Feed" href="https://mjplumley.github.io/portfolio/comments/feed/" />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://mjplumley.github.io/portfolio/wp-includes/css/dist/block-library/style.min.css?ver=5.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='amphibious-bootstrap-grid-css'  href='https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/css/bootstrap-grid.css?ver=5.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-5-css'  href='https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/css/fontawesome-all.css?ver=5.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='amphibious-fonts-css'  href='https://fonts.googleapis.com/css?family=Poppins%3A400%2C400i%2C700%2C700i%7CRubik%3A400%2C400i%2C700%2C700i&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='amphibious-style-css'  href='https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/style.css?ver=5.4.2' type='text/css' media='all' />
+<style id='amphibious-style-inline-css' type='text/css'>
+.blog .posted-on,.archive .posted-on,.search .posted-on,.blog .cat-links,.archive .cat-links,.search .cat-links,.blog .byline,.archive .byline,.search .byline,.blog .comments-link,.archive .comments-link,.search .comments-link,.single .posted-on,.single .cat-links,.single .tags-links,.single .byline,.archive-title-control,.credits-designer { clip: rect(1px, 1px, 1px, 1px); position: absolute; }
+</style>
+<script type='text/javascript' src='https://mjplumley.github.io/portfolio/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://mjplumley.github.io/portfolio/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='https://mjplumley.github.io/portfolio/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://mjplumley.github.io/portfolio/xmlrpc.php?rsd" />
+<link rel='prev' title='Time series sales analysis' href='https://mjplumley.github.io/portfolio/sales-analysis/' />
+<meta name="generator" content="WordPress 5.4.2" />
+<link rel="canonical" href="https://mjplumley.github.io/portfolio/rotating-fluid-dynamics/" />
+<link rel='shortlink' href='https://mjplumley.github.io/portfolio/?p=25' />
+<link rel="alternate" type="application/json+oembed" href="https://mjplumley.github.io/portfolio/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmjplumley.github.io%2Fportfolio%2Frotating-fluid-dynamics%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://mjplumley.github.io/portfolio/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmjplumley.github.io%2Fportfolio%2Frotating-fluid-dynamics%2F&#038;format=xml" />
+
+		<style type="text/css">
+		.site-header {
+			background-image: url(https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/cropped-background.jpg);
+			background-repeat: no-repeat;
+			background-position: top center;
+			-webkit-background-size: cover;
+			   -moz-background-size: cover;
+			     -o-background-size: cover;
+			        background-size: cover;
+		}
+	</style>
+	
+		<style type="text/css">
+			.site-title a,
+		.site-title a:visited {
+			color: #ffffff;
+		}
+		.site-title a:hover,
+		.site-title a:focus,
+		.site-title a:active {
+			opacity: 0.7;
+		}
+		.site-description {
+			color: #ffffff;
+			opacity: 0.7;
+		}
+		</style>
+
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #44443f; }
+</style>
+	<link rel="icon" href="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/cropped-LOGOmp-1-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/cropped-LOGOmp-1-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/cropped-LOGOmp-1-180x180.png" />
+<meta name="msapplication-TileImage" content="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/cropped-LOGOmp-1-270x270.png" />
+		<style type="text/css" id="wp-custom-css">
+			#site-navigation-wrap .dropdown-menu {
+    display: block;
+    float: none;
+    position: relative;
+    top: auto;
+    left: auto;
+    border: none;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}		</style>
+		</head>
+<body class="post-template-default single single-post postid-25 single-format-standard custom-background has-site-branding has-custom-header has-wide-layout has-no-sidebar">
+<div id="page" class="site-wrapper site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	
+<header id="masthead" class="site-header">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+
+				<div class="site-header-inside-wrapper">
+					
+<div class="site-branding-wrapper">
+	<div class="site-logo-wrapper"></div>
+	<div class="site-branding">
+					<p class="site-title"><a href="https://mjplumley.github.io/portfolio/" title="Meredith Plumley" rel="home">Meredith Plumley</a></p>
+		
+				<p class="site-description">
+			PhD Applied Mathematician 		</p>
+			</div>
+</div><!-- .site-branding-wrapper -->
+
+<nav id="site-navigation" class="main-navigation">
+	<div class="main-navigation-inside">
+		<div class="toggle-menu-wrapper">
+			<a href="#header-menu-responsive" title="Menu" class="toggle-menu-control">
+				<span class="toggle-menu-label">Menu</span>
+			</a>
+		</div>
+
+		<div class="site-header-menu-wrapper site-header-menu-responsive-wrapper"><ul id="menu-1" class="site-header-menu site-header-menu-responsive"><li id="menu-item-28" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-28"><a href="https://mjplumley.github.io/portfolio/">Projects</a>
+<ul class="sub-menu">
+	<li id="menu-item-184" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-184"><a href="https://mjplumley.github.io/portfolio/category/data-science/">Data Science</a></li>
+	<li id="menu-item-185" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-185"><a href="https://mjplumley.github.io/portfolio/category/fluid-dynamics/">Fluid Dynamics</a></li>
+</ul>
+</li>
+<li id="menu-item-101" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-101"><a target="_blank" rel="noopener noreferrer" href="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/CV_MeredithPlumley.pdf">CV</a></li>
+</ul></div>	</div><!-- .main-navigation-inside -->
+</nav><!-- .main-navigation -->
+				</div><!-- .site-header-inside-wrapper -->
+
+			</div><!-- .col -->
+		</div><!-- .row -->
+	</div><!-- .container -->
+</header><!-- #masthead -->
+
+	<div id="content" class="site-content">
+
+	<div class="site-content-inside">
+		<div class="container">
+			<div class="row">
+
+				<div id="primary" class="content-area col">
+					<main id="main" class="site-main">
+
+						<div id="post-wrapper" class="post-wrapper post-wrapper-single post-wrapper-single-post">
+												
+							
+<div class="post-wrapper-hentry">
+	<article id="post-25" class="post-25 post type-post status-publish format-standard has-post-thumbnail hentry category-all category-fluid-dynamics has-post-thumbnail-archive">
+		<div class="post-content-wrapper post-content-wrapper-single post-content-wrapper-single-post">
+
+			<div class="entry-image-wrapper-single"><figure class="post-thumbnail"><img width="1920" height="1142" src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-07-at-1.16.25-PM-1920x1142.png" class="img-featured img-responsive wp-post-image" alt="" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-07-at-1.16.25-PM-1920x1142.png 1920w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-07-at-1.16.25-PM-300x178.png 300w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-07-at-1.16.25-PM-1024x609.png 1024w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-07-at-1.16.25-PM-768x457.png 768w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-07-at-1.16.25-PM-1536x913.png 1536w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-07-at-1.16.25-PM-2048x1218.png 2048w" sizes="(max-width: 1920px) 100vw, 1920px" /></figure></div>
+			<div class="entry-data-wrapper">
+				<div class="entry-header-wrapper">
+					<header class="entry-header">
+						<h1 class="entry-title">Rotating fluid dynamics</h1>					</header><!-- .entry-header -->
+
+					<div class="entry-meta entry-meta-header-after">
+						<span class="byline entry-meta-icon">by <span class="author vcard"><a class="entry-author-link url fn n" href="https://mjplumley.github.io/portfolio/author/mjplumley/" rel="author"><span class="entry-author-name">mjplumley</span></a></span></span><span class="posted-on entry-meta-icon"><span class="screen-reader-text">Posted on</span><a href="https://mjplumley.github.io/portfolio/rotating-fluid-dynamics/" rel="bookmark"><time class="entry-date published" datetime="2020-01-10T13:37:42+00:00">January 10, 2020</time><time class="updated" datetime="2020-07-10T13:26:58+00:00">July 10, 2020</time></a></span>					</div><!-- .entry-meta -->
+				</div><!-- .entry-header-wrapper -->
+
+				<div class="entry-content">
+					
+<p>My doctoral research  focused on rotating, convection driven turbulence and its role in planetary interiors, specifically in the transfer of heat and energy and the formation of structures in the fluid. Rotating turbulence is a key source of energy redistribution within many geophysical and astrophysical flows. These flows are typically dominated by rapid rotation and strong turbulence, which poses a computational challenge for numerical simulation of the governing Naiver&#8211;Stokes equations (NSE).</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-07-at-1.14.12-PM-1024x626.png" alt="" class="wp-image-75" width="497" height="303" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-07-at-1.14.12-PM-1024x626.png 1024w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-07-at-1.14.12-PM-300x183.png 300w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-07-at-1.14.12-PM-768x469.png 768w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-07-at-1.14.12-PM.png 1522w" sizes="(max-width: 497px) 100vw, 497px" /><figcaption> <span style="color:#c4edf0" class="has-text-color has-normal-font-size"> Schematic showing the domain of interest from Cheng et al (2015).</span></figcaption></figure></div>
+
+
+
+<p>In my dissertation, I developed reduced mathematical models for the study of fluid dynamics in the limit of rapid rotation. The models were analyzed to uncover dominant dynamics and simulated numerically to study the flow morphologies and explore parameter space.</p>
+
+
+
+<p>In particular, I explored three different projects in my research: </p>
+
+
+
+<ul><li>(i) hydrodynamic fluids focused on the effect of no-slip boundary conditions and comparison to experimental results, with the goal of unifying scaling laws between methodologies; </li><li>(ii) the flow structures as a function of the horizontal domain, with the goal of exploring domains that currently cannot be investigated in laboratory settings; and </li><li>(iii) magnetohydrodynamic fluids, with the goal of understanding the dynamo process occurring within Earth&#8217;s outer iron core. </li></ul>
+
+
+
+<div class="wp-block-group"><div class="wp-block-group__inner-container">
+<div class="wp-block-group"><div class="wp-block-group__inner-container">
+<div class="wp-block-group"><div class="wp-block-group__inner-container">
+<hr class="wp-block-separator"/>
+</div></div>
+</div></div>
+
+
+
+<h3 class="has-text-color has-text-align-center" style="color:#47bec9">Project (i)</h3>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<div class="wp-block-media-text alignwide is-stacked-on-mobile is-vertically-aligned-top" style="grid-template-columns:55% auto"><figure class="wp-block-media-text__media"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-14-at-11.33.08-AM-1024x780.png" alt="" class="wp-image-110" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-14-at-11.33.08-AM-1024x780.png 1024w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-14-at-11.33.08-AM-300x228.png 300w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-14-at-11.33.08-AM-768x585.png 768w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-14-at-11.33.08-AM.png 1082w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure><div class="wp-block-media-text__content">
+<figure class="wp-block-image size-large"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-14-at-11.35.14-AM-1024x714.png" alt="" class="wp-image-111" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-14-at-11.35.14-AM-1024x714.png 1024w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-14-at-11.35.14-AM-300x209.png 300w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-14-at-11.35.14-AM-768x536.png 768w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-14-at-11.35.14-AM.png 1184w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p style="color:#c4edf0" class="has-text-color has-normal-font-size">Visualizations of the heat transfer scaling laws as power laws (left) and as a surface (right).</p>
+</div></div>
+</div></div>
+
+
+
+<div style="height:34px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p>One major result was the exploration of parameter space with varying boundary conditions.  The wide range of parameter space covered in the study allowed for the development of scaling laws to define how the flow varies with the inputs. Specifically, these scaling laws show the power law dependence of the heat transfer, as measured by the nondimensional Nusselt number <em>Nu</em>, for a wide range of Rayleigh number <em>Ra</em> &#8212; Ekman number <em>E</em> parameter space.</p>
+
+
+
+<p>These scaling law results facilitate comparison of experimental and simulation simulations and provide insight into the effect of boundary conditions.</p>
+
+
+
+<p>The work and results are detailed in the following papers:</p>
+
+
+
+<ul><li>Plumley, Meredith, et al. &#8220;The effects of Ekman pumping on quasi-geostrophic Rayleigh–Bénard convection.&#8221;&nbsp;<em>Journal of Fluid Mechanics</em>&nbsp;803 (2016): 51-71.</li><li>Plumley, Meredith, et al. &#8220;Sensitivity of rapidly rotating Rayleigh-Bénard convection to Ekman pumping.&#8221;&nbsp;<em>Physical Review Fluids</em>&nbsp;2.9 (2017): 094801.</li></ul>
+
+
+
+<hr class="wp-block-separator is-style-default"/>
+
+
+
+<h3 class="has-text-color has-text-align-center" style="color:#47bec9">Project (ii)</h3>
+
+
+
+<div class="wp-block-media-text alignwide is-stacked-on-mobile" style="grid-template-columns:45% auto"><figure class="wp-block-media-text__media"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/combo.png" alt="" class="wp-image-118" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/combo.png 457w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/combo-300x199.png 300w" sizes="(max-width: 457px) 100vw, 457px" /></figure><div class="wp-block-media-text__content">
+<p>Departing from the square horizontal domain for the hydrodynamic model, I explored the effect of domain anisotropy on the inverse cascade of energy towards larger scale flows.  For rectangular periodic domains, a Kolmogorov-like flow consisting of a periodic array of alternating unidirectional jets with embedded vortices is observed, together with an underlying weak meandering transverse jet.</p>
+</div></div>
+
+
+
+<div style="height:29px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p>This work is detailed in the paper:  </p>
+
+
+
+<ul><li>Julien, Keith, Edgar Knobloch, and Meredith Plumley. &#8220;Impact of domain anisotropy on the inverse cascade in geostrophic turbulent convection.&#8221; <em>Journal of Fluid Mechanics</em> 837 (2018).</li></ul>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<div class="wp-block-group"><div class="wp-block-group__inner-container">
+<div class="wp-block-group"><div class="wp-block-group__inner-container">
+<hr class="wp-block-separator is-style-default"/>
+</div></div>
+</div></div>
+
+
+
+<h3 class="has-text-color has-text-align-center" style="color:#47bec9">Project (iii)</h3>
+
+
+
+<div style="height:34px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p>For investigations of the geomagnetic field, we simulated a mathematically reduced set of the MHD equations.  I investigated the model using a simplified class of solutions whose horizontal structure is<br>restricted to a certain geometry to reduce the complexity further.  This model contains multiple time scales which add a complication to the numerical simulation. I worked on two methodologies for handling the multiple timescales in the model:</p>
+
+
+
+<p></p>
+
+
+
+<ul><li> a stiff, common-in-time approach where all timescales are converted to a single time variable and </li><li>a heterogeneous multiscale modeling approach employing fast time averaging on the faster time scale fluxes that feed back onto the slow scales.</li></ul>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-14-at-2.03.31-PM.png" alt="" class="wp-image-124" width="430" height="134" srcset="https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-14-at-2.03.31-PM.png 1018w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-14-at-2.03.31-PM-300x94.png 300w, https://mjplumley.github.io/portfolio/wp-content/uploads/2020/05/Screen-Shot-2020-05-14-at-2.03.31-PM-768x241.png 768w" sizes="(max-width: 430px) 100vw, 430px" /><figcaption> <span class="has-text-color has-normal-font-size" style="color:#c4edf0"> Schematic showing the two methods implemented to compare and validate the handling of the two time scales in the model.</span></figcaption></figure></div>
+
+
+
+<p>Each strategy produced consistent results and each illustrated self-similar dynamics as the time averaging window is increased. The model showed that the properties of the convection were significantly altered by the dynamo-generated magnetic field.&nbsp;</p>
+
+
+
+<p>These results are detailed in the paper: </p>
+
+
+
+<ul><li>Plumley, Meredith, et al. &#8220;Self-consistent single mode investigations of the quasi-geostrophic convection-driven dynamo model.&#8221; <em>Journal of Plasma Physics</em> 84.4 (2018).</li></ul>
+
+
+
+<p></p>
+									</div><!-- .entry-content -->
+
+				<footer class="entry-meta entry-meta-footer">
+					<span class="cat-links cat-links-single">Posted in <a href="https://mjplumley.github.io/portfolio/category/all/" rel="category tag">All</a>, <a href="https://mjplumley.github.io/portfolio/category/fluid-dynamics/" rel="category tag">Fluid Dynamics</a></span>				</footer><!-- .entry-meta -->
+			</div><!-- .entry-data-wrapper -->
+
+		</div><!-- .post-content-wrapper -->
+	</article><!-- #post-## -->
+</div><!-- .post-wrapper-hentry -->
+
+							
+							
+	<nav class="navigation post-navigation" role="navigation" aria-label="Posts">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="https://mjplumley.github.io/portfolio/sales-analysis/" rel="prev"><span class="meta-nav">Prev</span> <span class="post-title">Time series sales analysis</span></a></div></div>
+	</nav>
+							
+												</div><!-- .post-wrapper -->
+
+					</main><!-- #main -->
+				</div><!-- #primary -->
+
+				
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</div><!-- .site-content-inside -->
+
+
+	</div><!-- #content -->
+
+	<footer id="colophon" class="site-footer">
+		
+<div class="site-info">
+	<div class="site-info-inside">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col">
+					<div class="credits-wrapper">
+						<div class="credits credits-blog"></div><div class="credits credits-designer">Amphibious Theme by <a href="https://templatepocket.com" title="TemplatePocket">TemplatePocket</a> <span>&sdot;</span> Powered by <a href="https://wordpress.org" title="WordPress">WordPress</a></div>					</div><!-- .credits -->
+				</div><!-- .col -->
+			</div><!-- .row -->
+
+		</div><!-- .container -->
+
+	</div><!-- .site-info-inside -->
+</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+
+</div><!-- #page .site-wrapper -->
+
+<div class="overlay-effect"></div><!-- .overlay-effect -->
+
+<script type='text/javascript' src='https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/js/enquire.js?ver=2.1.6'></script>
+<script type='text/javascript' src='https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/js/fitvids.js?ver=1.1'></script>
+<script type='text/javascript' src='https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/js/hover-intent.js?ver=r7'></script>
+<script type='text/javascript' src='https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/js/superfish.js?ver=1.7.10'></script>
+<script type='text/javascript' src='https://mjplumley.github.io/portfolio/wp-content/themes/amphibious/js/custom.js?ver=1.0'></script>
+</body>
+</html>
